@@ -1,0 +1,36 @@
+<hr>
+
+ 
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+          <th>Nombre</th>
+        <th>Autores</th>
+        <th>Titulo</th>
+        <th>Libro</th>
+        <th>Editorial</th>
+        <th>Año</th>
+       
+      </tr>
+      <tr>
+      <td><input type="text" id="Nombre" name="Nombre" /></td>
+      <td><input type="text" id="Autores" name="Autores" /></td>
+      <td><input type="text" id="Titulo" name="Titulo" /></td>
+      <td><input type="text" id="Libro" name="Libro" /></td>
+      <td><input type="text" id="Editorial" name="Editorial" /></td>
+      <td><input type="text" id="Año" name="Año" /></td>
+    </tr>
+      </thead>
+      <tbody>
+   
+      </tbody>
+    </table>
+    <p>
+        <button (click)="this.Anadir()">Añadir publicacion</button>   <button (click)="this.modificar()">Modificar publicacion</button> <button (click)="this.eliminar()">Eliminar publicacion</button>
+      </p>
+      <p>
+          <button (click)="this.Anadirautor()">Añadir autor</button>   <button (click)="this.modificarautor()">Modificar autor</button> <button (click)="this.eliminarautor()">Eliminar autor</button>
+        </p>
+  </div>
+
