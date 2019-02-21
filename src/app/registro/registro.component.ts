@@ -11,5 +11,9 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
   }
+  model: any = {};
 
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+  }
 }

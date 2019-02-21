@@ -1,51 +1,45 @@
-<div class=" container">
-    <div class=" container">
-      <div class=" register">
-      <p><span class="error">* Campos necesarios</span></p>
-      <div id="errores" class="error_dos"></div>
-     <h1>Registro</h1>
-             <form method="post" action="/">
-            <div class="col-md-6 register-top-grid">
-             <h3>Información Personal</h3>
-              <div>
-               <span>Nombre *</span>
-               <input id="val_nombre" type="text"> 
-              </div>
-              <div>
-               <span>Apellidos *</span>
-               <input id="val_apellidos" type="text"> 
-              </div>
-                     <div>
-                     <span>DNI *</span>
-                     <input id="val_dni" type="text"> 
+<!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Registro</h3>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName.errors.required">Nombre es requerido</div>
+                        </div>
                     </div>
-              <div>
-                <span>E-Mail *</span>
-                <input id="val_email" type="text"> 
-              </div>
-              <div>
-                <span>Dirección *</span>
-                <input id="val_direccion" type="text"> 
-              </div>
-              </div>
-                <div class="col-md-6 register-top-grid register-bottom-grid">
-                   <h3>Información de cuenta</h3>
-                   <div>
-                     <span>Nombre de cuenta *</span>
-                     <input id="val_login" type="text">
-                   </div>
-                  <div>
-                   <span>Contraseña *</span>
-                   <input id="val_contrasena" type="password">
-                  </div>
-                  <div>
-                   <span>Confirma la contraseña *</span>
-                   <input id="val_conf_contrasena" type="password">
-                  </div>
-                  <input id="boton_registro" type="submit" value="Registrarse">
-                 
-              </div>
-              <div class="clearfix"> </div>
-           </form>
-         </div>
-      </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+                        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                            <div *ngIf="lastName.errors.required">Apellido es requerido</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors.required">Email es requerido</div>
+                            <div *ngIf="email.errors.email">Email debe ser una dirección de email válida</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors.required">Password es requerido</div>
+                            <div *ngIf="password.errors.minlength">El password debe tener al menos 6 caracteres</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
