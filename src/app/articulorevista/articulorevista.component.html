@@ -1,9 +1,11 @@
 <hr>
+<button routerLink="/new-publicacion">Nueva Publicacion</button>
+
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
       <tr>
-          <th>Nombre</th>
+          <th>id</th>
         <th>Autores</th>
         <th>Titulo</th>
         <th>Revista</th>
@@ -11,26 +13,26 @@
         <th>Año</th>
        
       </tr>
-      <tr>
-         <td><input type="text" id="Nombre" name="Nombre" /></td>
-        <td><input type="text" id="Autores" name="Autores" /></td>
-        <td><input type="text" id="Titulo" name="Titulo" /></td>
-        <td><input type="text" id="Revista" name="Revista" /></td>
-        <td><input type="text" id="ISSN" name="ISSN" /></td>
-        <td><input type="text" id="Ano" name="Ano" /></td>
+      
+      <tr *ngFor="let user of users">
+          
+          <td>{{user.id}}</td>
+          <td><input type="text" name="autorId" [(ngModel)]="user.autorId"></td>
+          <td><input type="text" name="titulo" [(ngModel)]="user.titulo"></td>
+          <td><input type="text" name="revista" [(ngModel)]="user.revista"></td>
+          <td><input type="text" name="issn" [(ngModel)]="user.issn"></td>
+          <td><input type="text" name="anyo" [(ngModel)]="user.anyo"></td>
+          <td><button (click)="deleteUser(user.id)">Borrar publicacion</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button (click)="Modificar(user.id)">Borrar publicacion</button>
+          </td>
+               
+          </tr>
         
-      </tr>
       </thead>
       <tbody>
    
       </tbody>
     </table>
-    <p>
-        <button (click)="this.Anadir()">Añadir publicacion</button>   <button (click)="this.modificar()">Modificar publicacion</button> <button (click)="this.eliminar()">Eliminar publicacion</button>
-      </p>
-      <p>
-          <button (click)="this.Anadirautor()">Añadir autor</button>   <button (click)="this.modificarautor()">Modificar autor</button> <button (click)="this.eliminarautor()">Eliminar autor</button>
-        </p>
-        
+    
+         
   </div>
 

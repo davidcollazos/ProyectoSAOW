@@ -17,10 +17,21 @@ import { LibroComponent } from './libro/libro.component';
 import { CapitulolibroComponent } from './capitulolibro/capitulolibro.component';
 import { ReportecientificoComponent } from './reportecientifico/reportecientifico.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { UserDomainService } from './services/user-domain.service';
 import { RegistroComponent } from './registro/registro.component';
+import { NewPublicacionComponent } from './new-publicacion/new-publicacion.component';
+import { ModificarPublicacionComponent } from './modificar-publicacion/modificar-publicacion.component';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: './articulorevista', pathMatch: 'full' },
+  { path: 'articulorevista', component: ArticulorevistaComponent },
+  { path: 'new-publicacion', component: NewPublicacionComponent },
+  { path: 'modificar-publicacion', component: ModificarPublicacionComponent }
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +46,8 @@ import { RegistroComponent } from './registro/registro.component';
     ReportecientificoComponent,
     DashboardComponent,
     RegistroComponent,
+    NewPublicacionComponent,
+    ModificarPublicacionComponent,
  
     
    
@@ -44,10 +57,18 @@ import { RegistroComponent } from './registro/registro.component';
     BrowserModule,
     AppRoutingModule, 
     routing,
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    ),
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  exports: [
+    RouterModule
+  ],
+  providers: [UserDomainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
