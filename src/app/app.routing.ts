@@ -10,10 +10,12 @@ import { ReportecientificoComponent } from './reportecientifico/reportecientific
 import { ContactoComponent } from './contacto/contacto.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 import {RegistroComponent} from './registro/registro.component';
+import { AutoresComponent } from './autores/autores.component';
 const appRoutes:Routes = [
     {path:'home', component: HomeComponent},
     {path:'login', component:LoginComponent},
     {path:'registro',component:RegistroComponent},
+    {path:'autores',component:AutoresComponent},
     {path: 'articulorevista',component:ArticulorevistaComponent},
     {path: 'comunicacioncongreso',component:ComunicacioncongresoComponent},
     {path: 'libro',component:LibroComponent},

@@ -1,6 +1,6 @@
 <hr>
-<button routerLink="/new-publicacion">Nueva Publicacion</button>
-
+<button routerLink="/new-publicacion">Nueva Publicacion</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button routerLink="/modificar-publicacion">Modificar Publicacion</button>
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
@@ -17,12 +17,12 @@
       <tr *ngFor="let user of users">
           
           <td>{{user.id}}</td>
-          <td><input type="text" name="autorId" [(ngModel)]="user.autorId"></td>
-          <td><input type="text" name="titulo" [(ngModel)]="user.titulo"></td>
-          <td><input type="text" name="revista" [(ngModel)]="user.revista"></td>
-          <td><input type="text" name="issn" [(ngModel)]="user.issn"></td>
-          <td><input type="text" name="anyo" [(ngModel)]="user.anyo"></td>
-          <td><button (click)="deleteUser(user.id)">Borrar publicacion</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button (click)="Modificar(user.id)">Borrar publicacion</button>
+          <td>{{user.autorId}}</td>
+          <td>{{user.titulo}}</td>
+          <td>{{user.revista}}</td>
+          <td>{{user.issn}}</td>
+          <td>{{user.anyo}}</td>
+          <td><button (click)="deleteUser(user.id)">Borrar publicacion</button>
           </td>
                
           </tr>

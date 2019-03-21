@@ -1,10 +1,27 @@
 <h3>Modificar publicacion</h3>
+
 <form>
-<div class="form-group">
-    <ul *ngFor="let user of users">
-        {{user.id}}
-    </ul>
- </div>
+  <p>Por favor escriba en el campo identificador uno de los siguientes identificadores que se muestran en el selector</p>
+  <p>Nota importante: Si usted pone un id que no está en el selector se creará una nueva publicacion</p>
+  
+   <div class="form-group">
+    
+    <label for="id">Identificadores existentes</label>
+    
+      <select >
+     
+      <option  *ngFor="let user of users" name="id"  value="{{user.id}}">{{user.id}}</option>
+       
+      </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="id">Identificador</label>
+        <input type="text" name="id" [(ngModel)]="user.id">
+        </div>
+
+
 <div class="form-group">
 <label for="autorId">Autores</label>
 <input type="text" name="autorId" [(ngModel)]="user.autorId">

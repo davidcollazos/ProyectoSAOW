@@ -23,12 +23,19 @@ import { UserDomainService } from './services/user-domain.service';
 import { RegistroComponent } from './registro/registro.component';
 import { NewPublicacionComponent } from './new-publicacion/new-publicacion.component';
 import { ModificarPublicacionComponent } from './modificar-publicacion/modificar-publicacion.component';
+import { AutoresComponent } from './autores/autores.component';
+import { NewAutorComponent } from './new-autor/new-autor.component';
+import { ModificarAutorComponent } from './modificar-autor/modificar-autor.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: './articulorevista', pathMatch: 'full' },
   { path: 'articulorevista', component: ArticulorevistaComponent },
   { path: 'new-publicacion', component: NewPublicacionComponent },
-  { path: 'modificar-publicacion', component: ModificarPublicacionComponent }
+  { path: 'modificar-publicacion', component: ModificarPublicacionComponent },
+  { path: '', redirectTo: './autores', pathMatch: 'full' },
+  { path: 'autores', component: AutoresComponent },
+  { path: 'new-autor', component: NewAutorComponent },
+  { path: 'modificar-autor', component: ModificarAutorComponent }
 ];
 
 
@@ -48,6 +55,9 @@ const appRoutes: Routes = [
     RegistroComponent,
     NewPublicacionComponent,
     ModificarPublicacionComponent,
+    AutoresComponent,
+    NewAutorComponent,
+    ModificarAutorComponent,
  
     
    

@@ -1,44 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDomainService } from '../services/user-domain.service';
-import { User } from '../model/user';
+import { AutorUser } from '../model/autor';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-modificar-publicacion',
-  templateUrl: './modificar-publicacion.component.html',
-  styleUrls: ['./modificar-publicacion.component.css']
+  selector: 'app-modificar-autor',
+  templateUrl: './modificar-autor.component.html',
+  styleUrls: ['./modificar-autor.component.css']
 })
-export class ModificarPublicacionComponent{
+export class ModificarAutorComponent implements OnInit {
 
   public users;
-  user: User;
+  user: AutorUser;
 
   constructor(private userService: UserDomainService,
     private router: Router) { }
 
   ngOnInit() {
     this.loadUsers();
-    this.user = new User();
+    this.user = new AutorUser();
     
   }
 
   private loadUsers() {
-    this.userService.getUsers().subscribe(
+    this.userService.getAutor().subscribe(
       data => { this.users = data },
       err => console.error(err),
       () => console.log("users loaded.")
     );
   }
 
-  Modificar() {
-    this.userService.Modificar(this.user).toPromise().then(() => {
-      this.router.navigate(['articulorevista']);
+  ModificarAutor() {
+    this.userService.ModificarAutor(this.user).toPromise().then(() => {
+      this.router.navigate(['autores']);
     });
   }
-
-  
- 
-
 
 }
